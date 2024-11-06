@@ -18,7 +18,7 @@
 
   <div class=" p-5 mb-4 bg-warning rounded-3">
     <div class="container-fluid py-5  ">
-      <h1 class="display-3 px-3 fw-bold border border-danger bg-danger text-white rounded  ">Welcome to FoodBuzz!</h1>
+      <h1 class="display-3 px-3 fw-bold border border-danger bg-danger text-white rounded  ">Welcome to TechBuzz!</h1>
       <p class="col-md-8 fs-4 text-white change">"Welcome to FoodBuzz, your go-to destination for the latest insights and trends in PCB manufacturing and electronics. Whether you're a professional or a tech enthusiast, explore our in-depth tutorials, product updates, and industry news. Stay ahead with expert tips, technical guides, and innovation stories, all curated by ADIY to keep you informed and inspired."</p>
 
     </div>
@@ -29,55 +29,31 @@
 
 
 <hr>
-<div class="container px-4 py-5 " id="custom-cards">
 
 
-  <h1 class="lead " style="font-size: 50px;">Category</h1>
-  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-    {% for category in mainCat %}
-    <div class="col">
-      <div class=" card card-cover card-img-top h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="opacity : inherit; background-image: url('/media/{{ category.image }}'); 
-      background-size: cover; 
-      background-position: center; 
-      background-repeat: no-repeat; 
-      height: 100%; 
-      width: 100%;">
-        <div class="d-flex flex-column h-100 p-5 pt-5 pb-5 mt-5 mb-5 text-white text-shadow-1">
-          <a href="{% url 'mainCat' category.id %}" class="text-decoration-none list-unstyled pt-5 mt-5 mb-4 lh-1">
-          </a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-    
-
-  </div>
-</div>
-
-
-<hr>
-<div class="container d-flex justify-content-center mx-5">
-
-  <div class=" row row-cols-1 row-cols-md-2 g-5">
-    {% for category in mainCat %}
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="..." class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+<div class="container my-4">
+  <h1>Category</h1>
+  <div class="row">
+    {% for i in mainCat %}
+    <div class="col-md-6 mb-4">
+      <a href="{% url 'mainCat' i.id %}" class="text-decoration-none list-unstyled pt-5 mt-5 mb-4 lh-1">
+        <div class="card h-100">
+          
+          <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
+            <img src="/media/{{ i.image }}" class="img-fluid" alt="Image of {{ i.name }}" style="max-height: 100%;">
+          </div>
+          <div class="card-body text-center">
+            
+            <h5 class="">{{ i.name }}</h5>
           </div>
         </div>
-      </div>
+      </a>
     </div>
     {% endfor %}
-    
   </div>
 </div>
+<hr>
+
 
 
 
