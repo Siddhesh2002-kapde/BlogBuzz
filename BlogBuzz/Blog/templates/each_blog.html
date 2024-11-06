@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock title %}
+
+
+{% block body %}
+<div class="row m-2 p-3 rounded each_blog_color">
+
+    <div class=" bg-dark border rounded d-flex flex-column align-items-stretch flex-shrink-0 " style="width: 380px;">
+        <a href="#"
+            class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
+            <svg class="bi pe-none me-2" width="30" height="24">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-5 fw-semibold text-white">List group</span>
+        </a>
+        <div id="list-example " class="list-group list-group-flush rounded  border-bottom scrollarea">
+            {% for i in data %}
+            <a href="{% url 'blog_detail' slug=i.slug %}" class="bg-dark text-white rounded list-group-item list-group-item-action  py-3 lh-sm"
+                aria-current="false">
+                <div class="d-flex w-100 align-items-center justify-content-between ">
+                    <strong class="mb-1 mx-3">{{i.title}}</strong>
+                    <small>{{i.upload_to}}</small>
+                </div>
+                
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="col-8 shadow p-3 mx-2 mb-5  bg-white rounded ">
+        <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example"
+            tabindex="0">
+            <div id="list-item-1">
+                {% if request.user.is_authenticated %}
+               
+                <div >
+                    {{ queryset.content|safe }}
+                </div>
+
+                <a href="{% url 'blog_update' slug=queryset.slug %}"
+                    class="m-3 px-3 form-control btn btn-primary">Edit</a>
+                {% else %}
+                <div class="container">
+                </div>
+                {{queryset.content|safe}}
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% comment %}
+
+<div class="row m-2">
+
+    <div class="col-3">
+        {% for i in data %}
+        <div id="list-example" class="list-group">
+            <a class="list-group-item list-group-item-action" href="{% url 'blog_detail' slug=i.slug %}">{{i.title}}</a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-8">
+        <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example"
+            tabindex="0">
+            <div id="list-item-1">
+                {% if request.user.is_authenticated %}
+                
+                {{queryset.content|safe}}
+                <a href="{% url 'blog_update' slug=queryset.slug %}"
+                    class="m-3 px-3 form-control btn btn-primary">Edit</a>
+                {% else %}
+                <div class="container">
+                    <h1 class="fs-1 text-center m-3">{{queryset.title}}</h1>
+                </div>
+                {{queryset.content|safe}}
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+{% comment %}
+<!-- <div class="container">
+    {% if request.user.is_authenticated %}
+    <h1 class="text-center m-3">{{queryset.title}}</h1>
+    {{queryset.content|safe}}
+    <a href="{% url 'blog_update' slug=queryset.slug %}" class="m-3 px-3 form-control btn btn-primary">Edit</a>
+    {% else %}
+    <div class="container">
+        <h1 class="fs-1 text-center m-3">{{queryset.title}}</h1>
+    </div>
+    
+    {{queryset.content|safe}}
+    {% endif %}
+</div> --> {% endcomment %}
+
+{% endblock body %}

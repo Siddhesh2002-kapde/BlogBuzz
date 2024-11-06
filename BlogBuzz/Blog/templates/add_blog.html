@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block title %}{% endblock title %}
+
+
+{% block body %}
+{% if request.user.is_authenticated %}
+<div class="container col-6 mx-auto">
+    <form method = 'post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-md-12">
+           
+            {{form.media}}
+            {{form.as_p}}
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% else %}
+
+Sorry You cant access this page. Kindly message to admin for any changes.
+
+{% endif %}
+
+
+
+{% endblock body %}

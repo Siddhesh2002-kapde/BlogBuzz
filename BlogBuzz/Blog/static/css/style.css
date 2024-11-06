@@ -1,0 +1,38 @@
+.each_blog_color {
+  background-color: rgb(227, 134, 134);
+
+}
+
+.backColor {
+  background-color: rgb(221, 201, 27);
+
+}
+
+.my-custom-background {
+  background-color: rgb(224, 221, 16);
+  margin-top: 34px;
+  color: white;
+
+}
+
+body{
+  cursor: none;
+  /* height: 1900px; */
+
+}
+
+.cursor {
+  background-color: rgb(113, 242, 143);
+  /* border: 2px solid black; */
+  /* margin:34px; */
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode:luminosity ;
+  z-index: 6;
+  /* Ensures it stays above other elements */
+}
