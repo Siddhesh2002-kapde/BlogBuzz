@@ -32,19 +32,19 @@
 
 
 <div class="container my-4">
-  <h1>Category</h1>
+  <h1 class = "m-4">Category</h1>
   <div class="row">
     {% for i in mainCat %}
     <div class="col-md-6 mb-4">
-      <a href="{% url 'mainCat' i.id %}" class="text-decoration-none list-unstyled pt-5 mt-5 mb-4 lh-1">
+      <a href="{% url 'mainCat' i.id %}" class="text-decoration-none  list-unstyled pt-5 mt-5 mb-4 lh-1">
         <div class="card h-100">
           
-          <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-            <img src="/media/{{ i.image }}" class="img-fluid" alt="Image of {{ i.name }}" style="max-height: 100%;">
+          <div class="d-flex justify-content-center align-items-center " style="height: 200px;">
+            <img src="/media/{{ i.image }}" class="img-fluid rounded" alt="Image of {{ i.name }}" style="max-height: 100%;">
           </div>
           <div class="card-body text-center">
             
-            <h5 class="">{{ i.name }}</h5>
+            <h5 class="">{{ i.mainCat }}</h5>
           </div>
         </div>
       </a>
